@@ -1,0 +1,22 @@
+import argparse
+
+def parse_args():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--data_path", type = str, default = "data/OQMD/train_formula.csv", help = "the path of training set")
+    parser.add_argument("--fea_type", type = str, default = "one_hot_matrix",help = "feature type")
+    parser.add_argument("--Periodic_table", type = str, default = "data/Periodic_Table/Periodic_Table.csv")
+    parser.add_argument("--per", type = float, default = 0.9, help = "The percentage of the training set")
+    parser.add_argument("--epochs", type = int, default = 300, help = "The epochs to train network")
+    parser.add_argument("--batch_size", type = int, default = 256, help = "batch size")
+    parser.add_argument("--disc_iters", type = int, default = 5)
+    parser.add_argument("--random_len", type = int, default = 128)
+    parser.add_argument("--atom2vec_len", type = int, default = 128)
+    parser.add_argument("--gan_type", type = str, default = "wgan-gp")
+    parser.add_argument("--gamma", type = float, default = 10.0)
+    parser.add_argument("--g_lr", type = float, default = 1e-4)
+    parser.add_argument("--d_lr", type = float, default = 1e-4)
+    parser.add_argument("--database", type = str, default = "ICSD")
+    parser.add_argument("--times", type = int, default = 10)
+    parser.add_argument("--fcc_lr", type = list, default = [1e-1, 1e-2, 1e-3, 1e-4])
+    parser.add_argument("--result_name", type = str)
+    return parser.parse_args()
